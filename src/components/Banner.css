@@ -1,0 +1,7 @@
+.banner{
+    margin-bottom: -100px;
+}
+
+.banner-mask{
+    mask-image: linear-gradient(to bottom,black,transparent);
+}
