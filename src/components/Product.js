@@ -18,7 +18,9 @@ function Product({ id, title, price, rating, image }) {
                     }
                 </div>
             </div>
-            <img src={image} alt='pdt' />
+            <div>
+                <img src={image} alt='pdt' />
+            </div>
             <button onClick={() => dispatch({ type: 'ADD_PRODUCT', id: id })}>ADD TO CART</button>
         </div>
     )
