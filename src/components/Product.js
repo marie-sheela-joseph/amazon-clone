@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Product.css'
+import { dispatchContext } from '../App'
 
 function Product({ id, title, price, rating, image }) {
+    const dispatch = useContext(dispatchContext)
     return (
         <div className='product col-s-6 col-l-4 col-xl-3'>
             <div className='product__info'>
@@ -17,7 +19,7 @@ function Product({ id, title, price, rating, image }) {
                 </div>
             </div>
             <img src={image} alt='pdt' />
-            <button>ADD TO CART</button>
+            <button onClick={() => dispatch({ type: 'ADD_PRODUCT', id: id })}>ADD TO CART</button>
         </div>
     )
 }
