@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Login.css'
 import { auth } from '../firebase'
+import Footer from './Footer';
 
 function Login() {
     const [localState, setLocalState] = useState({ email: '', password: '' });
@@ -27,7 +28,7 @@ function Login() {
             })
     }
     return (
-        <div className='login'>
+        <section className='login'>
             <div className='container'>
                 <div>
                     <div className='login__logo'>
@@ -55,7 +56,7 @@ function Login() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 
