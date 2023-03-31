@@ -10,7 +10,6 @@ import { auth } from "./firebase";
 export const stateContext = createContext()
 export const dispatchContext = createContext()
 
-
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
   useEffect(() => {
