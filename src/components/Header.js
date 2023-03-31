@@ -2,8 +2,14 @@ import React, { useContext } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import './Header.css';
 import { stateContext } from '../App';
+import { auth } from '../firebase';
 function Header() {
     const state = useContext(stateContext)
+    function signout() {
+        if (state.user) {
+            auth.signOut()
+        }
+    }
     return (
         <div>
             <header className='header'>
@@ -18,10 +24,10 @@ function Header() {
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div className='header__nav'>
-                        <Link to={"/login"} className='header__link'>
-                            <div>
-                                <p className='header__optionLineOne'>Hello</p>
-                                <p className='header__optionLineTwo'>Sign out</p>
+                        <Link to={!state.user && "/login"} className='header__link'>
+                            <div onClick={signout}>
+                                <p className='header__optionLineOne'>Hello {state.user?.email}</p>
+                                <p className='header__optionLineTwo'>{state.user ? 'Sign out' : 'Sign in'}</p>
                             </div>
                         </Link>
                         <Link to={"/checkout"} className='header__link'>
